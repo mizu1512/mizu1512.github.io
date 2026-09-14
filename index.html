@@ -721,33 +721,26 @@ footer {
         <div class="contact-item"><span>📍</span><div><small>Location</small><strong>Rajshahi, Bangladesh</strong></div></div>
       </div>
     </div>
-
+    
+<form id="contactForm">
     <form action="https://formspree.io/f/xaeyrjgv" method="POST">
-  <div class="form-group">
-    <label for="name">Your Name</label>
-    <input type="text" id="name" name="name" required value="MD MIZANUR RAHMAN">
-  </div>
-  <div class="form-group">
-    <label for="email">Your Email Address</label>
-    <input type="email" id="email" name="_replyto" required value="mizan203869@gmail.com">
-  </div>
-  <div class="form-group">
-    <label for="service">Select Service</label>
-    <select id="service" name="service">
-      <option value="Video Editing" selected>Video Editing</option>
-      <option value="Motion Graphics">Motion Graphics</option>
-      <option value="Full Production">Full Production</option>
-    </select>
-  </div>
-  <div class="form-group">
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" placeholder="Write your project details here..." required></textarea>
-  </div>
-  <button type="submit" class="submit-btn">Send Message ↗</button>
-</form>
+      <input type="text" name="name" placeholder="Your Name *" required>
+      <input type="email" name="email" placeholder="Your Email *" required>
+      <select name="service" required>
+        <option value="">Select a service</option>
+        <option>Video Editing</option>
+        <option>Motion Graphics</option>
+        <option>Social Media Editing</option>
+        <option>Commercial Video</option>
+        <option>Podcast Editing</option>
+        <option>Other</option>
+      </select>
+      <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+      <button class="btn" type="submit">Send Message ↗</button>
+      <p id="formMessage" style="font-size:12px;color:#8fa4c2"></p>
+    </form>
   </div>
 </section>
-
 </main>
 
 <footer>
