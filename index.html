@@ -416,362 +416,101 @@ section { padding: 100px 0; }
 
 .about-image::before {
   content: "MR";
-  font-size: 130px;
+  font-size: 150px;
   font-weight: 800;
-  font-style: italic;
-  color: #ffffff12;
+  color: rgba(255,255,255,0.03);
 }
-
-.about-image::after {
-  content: "MIZANUR RAHMAN";
-  position: absolute;
-  bottom: 35px;
-  font-size: 11px;
-  letter-spacing: 4px;
-  color: #75a9e8;
-}
-
-.about-text h2 { font-size: 36px; margin-bottom: 18px; }
-.about-text p { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
-
-.highlights { display: grid; gap: 16px; margin: 25px 0; }
-
-.highlight {
-  display: flex;
-  gap: 14px;
-  align-items: flex-start;
-}
-
-.highlight-icon { color: #529eff; font-size: 20px; }
-.highlight h4 { font-size: 13px; }
-.highlight p { margin: 3px 0 0; font-size: 12px; }
-
-.skills-grid {
-  display: grid;
-  grid-template-columns: repeat(3,1fr);
-  gap: 18px;
-}
-
-.skill {
-  border: 1px solid var(--border);
-  background: #0a1424;
-  border-radius: 12px;
-  padding: 24px;
-}
-
-.skill h3 { font-size: 15px; margin-bottom: 8px; }
-.skill p { color: var(--muted); font-size: 12px; }
-
-.contact-grid {
+.contact-layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 50px;
+  align-items: start;
 }
 
-.contact-info h2 { font-size: 36px; margin-bottom: 15px; }
-.contact-info p { color: var(--muted); font-size: 13px; margin-bottom: 25px; }
+.contact-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  margin-top: 30px;
+}
 
-.contact-list { display: grid; gap: 16px; }
+.info-item label {
+  display: block;
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
 
-.contact-item { display: flex; gap: 13px; align-items: center; }
-.contact-item span:first-child { font-size: 20px; }
-.contact-item small { color: var(--muted); display: block; font-size: 11px; }
-.contact-item strong { font-size: 13px; font-weight: 500; }
+.info-item p {
+  font-size: 16px;
+  font-weight: 600;
+}
 
-form {
-  display: grid;
-  gap: 14px;
-  background: #0a1424;
+.form-box {
+  background: var(--card);
   border: 1px solid var(--border);
-  padding: 28px;
+  padding: 40px;
   border-radius: 16px;
 }
 
-input, textarea, select {
-  width: 100%;
-  padding: 13px 15px;
-  border-radius: 8px;
-  background: #07101e;
-  border: 1px solid #203653;
-  color: white;
-  font: inherit;
-  font-size: 12px;
-  outline: none;
+.form-box form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-input:focus, textarea:focus, select:focus { border-color: var(--blue); }
+.form-box input, .form-box select, .form-box textarea {
+  width: 100%;
+  padding: 16px;
+  background: #050914;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text);
+  font-family: inherit;
+  font-size: 14px;
+}
 
-textarea { min-height: 130px; resize: vertical; }
+.form-box input:focus, .form-box select:focus, .form-box textarea:focus {
+  outline: none;
+  border-color: var(--blue);
+}
+
+.submit-btn-style {
+  width: 100%;
+  padding: 16px;
+  border: none;
+  border-radius: 30px;
+  font-size: 14px;
+  font-weight: 700;
+  color: white;
+  background: linear-gradient(100deg,#1678ff,#8264f5);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: .3s;
+}
+
+.submit-btn-style:hover {
+  filter: brightness(1.15);
+}
 
 footer {
+  text-align: center;
+  padding: 40px 0;
+  color: var(--muted);
+  font-size: 13px;
   border-top: 1px solid var(--border);
-  padding: 30px 0;
-  color: #8292ad;
-  font-size: 11px;
+  margin-top: 50px;
 }
 
-.footer-content {
-  display: flex;
-  justify-content: space-between;
-  gap: 20px;
-  align-items: center;
-}
-
-@media (max-width: 900px) {
-  .nav-links { gap: 13px; }
-  .services-grid { grid-template-columns: repeat(2,1fr); }
-  .hero-grid { gap: 25px; }
-  .hero-visual { min-height: 300px; }
-  .about-grid { gap: 30px; }
-}
-
-@media (max-width: 650px) {
-  .nav { min-height: 65px; }
-  .menu-toggle { display: block; }
-  .nav-links {
-    display: none;
-    position: absolute;
-    top: 65px;
-    left: 0;
-    width: 100%;
-    padding: 25px;
-    background: #080f1d;
-    border-bottom: 1px solid var(--border);
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .nav-links.open { display: flex; }
-  .nav .btn { display: none; }
-  .hero { min-height: auto; padding: 70px 0; }
-  .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
-  .hero-visual { min-height: 270px; }
-  section { padding: 65px 0; }
-  .services-grid, .skills-grid, .portfolio-grid { grid-template-columns: 1fr; }
-  .project-thumb { height: 220px; }
-  .about-image { min-height: 270px; }
-  .about-text h2, .contact-info h2 { font-size: 29px; }
-  .footer-content { flex-direction: column; text-align: center; }
+@media (max-width: 768px) {
+  .contact-layout { grid-template-columns: 1fr; gap: 30px; }
+  .hero-grid, .services-grid, .portfolio-grid, .about-grid { grid-template-columns: 1fr; }
 }
 </style>
 </head>
-
 <body>
 
-<header>
-  <div class="container nav">
-    <a href="#home" class="logo">
-      <span class="logo-mark">MR</span>
-      <span>Mizanur Rahman</span>
-    </a>
-
-    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
-
-    <nav class="nav-links" id="navLinks">
-      <a href="#home">Home</a>
-      <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#portfolio">Portfolio</a>
-      <a href="#skills">Skills</a>
-      <a href="#contact">Contact</a>
-    </nav>
-
-    <a href="#contact" class="btn">Hire Me</a>
-  </div>
-</header>
-
-<main>
-
-<section class="hero" id="home">
-  <div class="container hero-grid">
-    <div>
-      <div class="eyebrow">Video Editor & Motion Graphics Designer</div>
-      <h1>Turning Ideas Into <span class="gradient">Visual Stories</span></h1>
-      <p>I'm Mizanur Rahman, a Video Editor and Motion Graphics Designer. I create engaging, high-quality videos and motion graphics for brands, businesses, and content creators.</p>
-      <div class="actions">
-        <a href="#portfolio" class="btn">View My Work ▶</a>
-        <a href="#contact" class="btn btn-outline">Get In Touch ↗</a>
-      </div>
-      <div class="socials">
-        <a href="#" aria-label="YouTube">YouTube</a>
-        <a href="#" aria-label="Instagram">Instagram</a>
-        <a href="#" aria-label="Facebook">Facebook</a>
-        <a href="#" aria-label="LinkedIn">LinkedIn</a>
-      </div>
-    </div>
-
-    <div class="hero-visual">
-      <div class="monitor">
-        <div class="screen">
-          <div class="screen-top"><span>VIDEO EDITING WORKSPACE</span><span>4K • 24 FPS</span></div>
-          <div class="preview"></div>
-          <div class="timeline"></div>
-        </div>
-      </div>
-      <div class="monitor-stand"></div>
-    </div>
-  </div>
-</section>
-
-<section id="services">
-  <div class="container">
-    <div class="section-heading">
-      <div class="eyebrow">What I Do</div>
-      <h2>Creative Services</h2>
-      <p>Professional video editing and motion graphics services to help your vision come to life.</p>
-    </div>
-
-    <div class="services-grid">
-      <div class="card"><div class="card-icon">🎬</div><h3>Video Editing</h3><p>YouTube videos, social media content, promotional videos, and ads.</p></div>
-      <div class="card"><div class="card-icon">✨</div><h3>Motion Graphics</h3><p>Motion titles, kinetic typography, logo animations, and lower thirds.</p></div>
-      <div class="card"><div class="card-icon">🎨</div><h3>2D Animation</h3><p>Explainer videos, animated graphics, and creative visual storytelling.</p></div>
-      <div class="card"><div class="card-icon">🎞️</div><h3>Color Grading</h3><p>Cinematic color correction and professional visual finishing.</p></div>
-      <div class="card"><div class="card-icon">🎧</div><h3>Sound Design</h3><p>Audio enhancement, sound effects, and clean audio mixing.</p></div>
-      <div class="card"><div class="card-icon">⚡</div><h3>Visual Effects</h3><p>VFX, compositing, cleanup, and creative effects.</p></div>
-      <div class="card"><div class="card-icon">📱</div><h3>Social Media Edits</h3><p>Reels, Shorts, TikTok, and engaging vertical content.</p></div>
-      <div class="card"><div class="card-icon">🎙️</div><h3>Podcast Editing</h3><p>Multi-camera editing, audio sync, highlights, and short clips.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="portfolio">
-  <div class="container">
-    <div class="section-heading">
-      <div class="eyebrow">My Work</div>
-      <h2>Featured Projects</h2>
-      <p>A selection of creative projects showcasing my editing and motion graphics skills.</p>
-    </div>
-
-    <div class="portfolio-grid">
-      <article class="project">
-        <div class="project-thumb"><h3>CINEMATIC<br>VIDEO EDIT</h3><span class="play">▶</span></div>
-        <div class="project-info"><h3>Cinematic Video Edit</h3><p>Storytelling, editing, and color grading.</p><div class="tags"><span class="tag">Video Editing</span><span class="tag">Color Grading</span></div></div>
-      </article>
-
-      <article class="project">
-        <div class="project-thumb motion"><h3>MOTION<br>GRAPHICS</h3><span class="play">▶</span></div>
-        <div class="project-info"><h3>Motion Graphics Intro</h3><p>2D animation and creative motion design.</p><div class="tags"><span class="tag">After Effects</span><span class="tag">Animation</span></div></div>
-      </article>
-
-      <article class="project">
-        <div class="project-thumb social"><h3>SOCIAL<br>MEDIA</h3><span class="play">▶</span></div>
-        <div class="project-info"><h3>Social Media Reel</h3><p>Short-form content for social platforms.</p><div class="tags"><span class="tag">Reels</span><span class="tag">Shorts</span></div></div>
-      </article>
-
-      <article class="project">
-        <div class="project-thumb commercial"><h3>PRODUCT<br>PROMO</h3><span class="play">▶</span></div>
-        <div class="project-info"><h3>Commercial Ad</h3><p>Product promotion and branded video editing.</p><div class="tags"><span class="tag">Commercial</span><span class="tag">Motion Design</span></div></div>
-      </article>
-    </div>
-
-    <div style="text-align:center;margin-top:35px">
-      <a href="#contact" class="btn btn-outline">Discuss Your Project ↗</a>
-    </div>
-  </div>
-</section>
-
-<section id="about">
-  <div class="container about-grid">
-    <div class="about-image"></div>
-
-    <div class="about-text">
-      <div class="eyebrow">About Me</div>
-      <h2>Hi, I'm Mizanur Rahman</h2>
-      <p>I'm a passionate Video Editor and Motion Graphics Designer with a strong focus on creating engaging, high-quality content.</p>
-      <p>I turn raw footage into polished, professional videos that help brands and creators tell their stories in the most impactful way.</p>
-
-      <div class="highlights">
-        <div class="highlight"><div class="highlight-icon">✦</div><div><h4>Creative & Detail Oriented</h4><p>I focus on visual quality, pacing, and storytelling.</p></div></div>
-        <div class="highlight"><div class="highlight-icon">✓</div><div><h4>Reliable & Fast</h4><p>Committed to clear communication and dependable delivery.</p></div></div>
-        <div class="highlight"><div class="highlight-icon">↗</div><div><h4>Trend Aware</h4><p>Keeping up with modern editing and motion design trends.</p></div></div>
-      </div>
-
-      <a href="#contact" class="btn">Let's Work Together ↗</a>
-    </div>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="container">
-    <div class="section-heading">
-      <div class="eyebrow">My Skills</div>
-      <h2>Tools & Expertise</h2>
-      <p>Industry-standard tools and creative techniques to deliver the best results.</p>
-    </div>
-
-    <div class="skills-grid">
-      <div class="skill"><h3>Adobe Premiere Pro</h3><p>Professional video editing, storytelling, pacing, and workflow.</p></div>
-      <div class="skill"><h3>Adobe After Effects</h3><p>Motion graphics, animation, compositing, and visual effects.</p></div>
-      <div class="skill"><h3>Motion Design</h3><p>Kinetic typography, titles, transitions, and logo animation.</p></div>
-      <div class="skill"><h3>Sound Design</h3><p>Audio enhancement, mixing, and sound effects.</p></div>
-      <div class="skill"><h3>Visual Storytelling</h3><p>Creative editing decisions that support your message.</p></div>
-    </div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="container contact-grid">
-    <div class="contact-info">
-      <div class="eyebrow">Let's Work Together</div>
-      <h2>Have a project in mind?</h2>
-      <p>I'd love to hear about your project and help bring your vision to life.</p>
-
-      <div class="contact-list">
-        <div class="contact-item"><span>✉️</span><div><small>Email</small><strong>mizan203869@gmail.com</strong></div></div>
-        <div class="contact-item"><span>📱</span><div><small>WhatsApp</small><strong>+880 1764668087</strong></div></div>
-        <div class="contact-item"><span>📍</span><div><small>Location</small><strong>Rajshahi, Bangladesh</strong></div></div>
-      </div>
-    </div>
-    
-<form action="https://formspree.io" method="POST" style="display: flex; flex-direction: column; gap: 16px;">
-  <input type="text" name="name" placeholder="Your Name *" required style="width: 100%; padding: 16px; background: #0b1425; border: 1px solid rgba(130,160,210,.16); border-radius: 8px; color: #f4f7ff; font-size: 14px;">
-  
-  <input type="email" name="email" placeholder="Your Email *" required style="width: 100%; padding: 16px; background: #0b1425; border: 1px solid rgba(130,160,210,.16); border-radius: 8px; color: #f4f7ff; font-size: 14px;">
-  
-  <select name="service" required style="width: 100%; padding: 16px; background: #0b1425; border: 1px solid rgba(130,160,210,.16); border-radius: 8px; color: #f4f7ff; font-size: 14px; appearance: none; -webkit-appearance: none;">
-    <option value="">Select a service</option>
-    <option>Video Editing</option>
-    <option>Motion Graphics</option>
-    <option>Social Media Editing</option>
-    <option>Commercial Video</option>
-    <option>Podcast Editing</option>
-    <option>Other</option>
-  </select>
-  
-  <textarea name="message" placeholder="Tell me about your project..." required style="width: 100%; padding: 16px; background: #0b1425; border: 1px solid rgba(130,160,210,.16); border-radius: 8px; color: #f4f7ff; font-size: 14px; min-height: 120px; resize: vertical;"></textarea>
-  
-  <button type="submit" style="width: 100%; padding: 16px; border: none; border-radius: 30px; font-size: 14px; font-weight: 700; color: white; background: linear-gradient(100deg,#1678ff,#8264f5); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: .3s;">Send Message ↗</button>
-</form>
-
-
-  </div>
-</section>
-</main>
-
-<footer>
-  <div class="container footer-content">
-    <div>MR &nbsp; Mizanur Rahman | Video Editor & Motion Graphics Designer</div>
-    <div>© 2026 Mizanur Rahman. @ All rights reserved.</div>
-  </div>
-</footer>
-
-<script>
-const menuToggle = document.getElementById("menuToggle");
-const navLinks = document.getElementById("navLinks");
-
-menuToggle.addEventListener("click", () => {
-  navLinks.classList.toggle("open");
-});
-
-document.querySelectorAll(".nav-links a").forEach(link => {
-  link.addEventListener("click", () => navLinks.classList.remove("open"));
-});
-
-document.getElementById("contactForm").addEventListener("submit", function(event) {
-  event.preventDefault();
-  document.getElementById("formMessage").textContent =
-    "Thanks! Please connect your email service to receive messages from this form.";
-});
-</script>
-
-</body>
-</html>
+  <header>
