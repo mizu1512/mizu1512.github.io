@@ -1,1318 +1,774 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.7">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 24.0px Helvetica; min-height: 29.0px}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 24.0px Helvetica}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mizanur Rahman | Video Editor & Motion Graphics Designer</title>
+<meta name="description" content="Mizanur Rahman is a professional Video Editor and Motion Graphics Designer creating engaging videos, motion graphics, and visual stories.">
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --bg: #050914;
+  --card: #0b1425;
+  --text: #f4f7ff;
+  --muted: #9ba9c3;
+  --blue: #2997ff;
+  --purple: #8b5cf6;
+  --border: rgba(130,160,210,.16);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: Inter, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+
+a { color: inherit; text-decoration: none; }
+
+.container {
+  width: min(1120px, 90%);
+  margin: auto;
+}
+
+header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(5,9,20,.88);
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--border);
+}
+
+.nav {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.logo-mark {
+  font-size: 24px;
+  font-style: italic;
+  background: linear-gradient(135deg,#fff,#699dff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.logo span:last-child { font-size: 14px; }
+
+.nav-links {
+  display: flex;
+  gap: 24px;
+  align-items: center;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.nav-links a { color: #dce5f7; transition: .3s; }
+.nav-links a:hover { color: var(--blue); }
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 13px 22px;
+  border-radius: 30px;
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid var(--blue);
+  color: white;
+  background: linear-gradient(100deg,#1678ff,#8264f5);
+  transition: .3s;
+  cursor: pointer;
+}
+
+.btn:hover { transform: translateY(-2px); filter: brightness(1.12); }
+
+.btn-outline { background: transparent; }
+
+.menu-toggle {
+  display: none;
+  background: transparent;
+  color: white;
+  border: 1px solid var(--border);
+  padding: 9px 12px;
+  border-radius: 8px;
+  font-size: 20px;
+}
+
+.hero {
+  min-height: 620px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background:
+    radial-gradient(ellipse at 80% 40%,rgba(0,102,255,.20),transparent 45%),
+    radial-gradient(ellipse at 20% 30%,rgba(110,40,200,.13),transparent 45%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  align-items: center;
+}
+
+.eyebrow {
+  color: #55aaff;
+  font-size: 11px;
+  letter-spacing: 3px;
+  font-weight: 700;
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+h1 {
+  font-size: clamp(35px,5vw,62px);
+  line-height: 1.12;
+  letter-spacing: -2px;
+  margin-bottom: 22px;
+}
+
+.gradient {
+  background: linear-gradient(100deg,#168bff,#9d72ff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.hero p {
+  color: var(--muted);
+  font-size: 14px;
+  max-width: 480px;
+  margin-bottom: 28px;
+}
+
+.actions { display: flex; gap: 12px; flex-wrap: wrap; }
+
+.socials {
+  display: flex;
+  gap: 16px;
+  margin-top: 28px;
+  color: #aebbd1;
+  font-size: 13px;
+}
+
+.socials a:hover { color: var(--blue); }
+
+.hero-visual {
+  min-height: 390px;
+  border: 1px solid #1d416d;
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+  background:
+    linear-gradient(135deg,rgba(0,90,190,.25),transparent),
+    radial-gradient(circle at 70% 30%,#163b69,#070d1a 65%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-visual::before {
+  content: "";
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle,rgba(0,128,255,.35),transparent 70%);
+  filter: blur(20px);
+}
+
+.monitor {
+  width: 82%;
+  aspect-ratio: 16/10;
+  border: 8px solid #1a2b43;
+  border-radius: 12px;
+  background: #060b14;
+  box-shadow: 0 25px 70px #0009;
+  position: relative;
+  z-index: 1;
+  padding: 10px;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 4px;
+  background:
+    linear-gradient(135deg,rgba(25,104,190,.4),transparent),
+    linear-gradient(160deg,#172c47,#070c17);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+.screen-top { display: flex; justify-content: space-between; color: #7f9abf; font-size: 9px; }
+
+.preview {
+  height: 62%;
+  background: linear-gradient(135deg,#162a42,#285e89,#0a1221);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.preview::after {
+  content: "MOTION";
+  position: absolute;
+  font-size: 25px;
+  font-weight: 800;
+  letter-spacing: 5px;
+  color: #ffffffb8;
+  inset: 0;
+  display: grid;
+  place-items: center;
+}
+
+.timeline {
+  height: 25%;
+  background: repeating-linear-gradient(90deg,#1e4f9b 0 35px,#387cc7 35px 65px,#7a43b7 65px 100px);
+  border-radius: 3px;
+  opacity: .8;
+}
+
+.monitor-stand {
+  width: 60px;
+  height: 40px;
+  background: #17263b;
+  position: absolute;
+  bottom: 24px;
+  border-radius: 0 0 8px 8px;
+}
+
+.monitor-stand::after {
+  content: "";
+  position: absolute;
+  width: 130px;
+  height: 8px;
+  background: #17263b;
+  bottom: -5px;
+  left: -35px;
+  border-radius: 10px;
+}
+
+section { padding: 100px 0; }
+
+.section-heading { margin-bottom: 40px; }
+
+.section-heading h2 {
+  font-size: clamp(28px,4vw,40px);
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.section-heading p {
+  color: var(--muted);
+  font-size: 13px;
+  max-width: 550px;
+  margin-top: 12px;
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 16px;
+}
+
+.card {
+  background: linear-gradient(145deg,#0c172a,#080f1e);
+  border: 1px solid var(--border);
+  border-radius: 14px;
+  padding: 25px;
+  transition: .3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  border-color: #286db8;
+}
+
+.card-icon { font-size: 28px; margin-bottom: 15px; }
+
+.card h3 { font-size: 15px; margin-bottom: 8px; }
+
+.card p { color: var(--muted); font-size: 12px; }
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  gap: 24px;
+}
+
+.project {
+  overflow: hidden;
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  background: #0b1425;
+}
+
+.project-thumb {
+  height: 245px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg,#1b304a,#080e1b);
+}
+
+.project-thumb::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 40%,#2475b955,transparent 65%);
+}
+
+.project-thumb h3 {
+  font-size: clamp(24px,4vw,42px);
+  text-align: center;
+  letter-spacing: 3px;
+  z-index: 1;
+  font-weight: 800;
+}
+
+.project-thumb.motion {
+  background: linear-gradient(135deg,#160b35,#070b1c);
+}
+
+.project-thumb.motion h3 {
+  background: linear-gradient(90deg,#c45cff,#358eff);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.project-thumb.social {
+  background: linear-gradient(135deg,#192b3d,#08111e);
+}
+
+.project-thumb.commercial {
+  background: linear-gradient(135deg,#102d4b,#08101e);
+}
+
+.play {
+  position: absolute;
+  bottom: 16px;
+  right: 16px;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #ffffff55;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #ffffff18;
+  font-size: 16px;
+}
+
+.project-info { padding: 20px; }
+
+.project-info h3 { font-size: 16px; margin-bottom: 6px; }
+.project-info p { color: var(--muted); font-size: 12px; }
+
+.tags { display: flex; gap: 8px; margin-top: 12px; flex-wrap: wrap; }
+
+.tag {
+  font-size: 10px;
+  border: 1px solid #274a78;
+  padding: 4px 9px;
+  border-radius: 20px;
+  color: #91b7ed;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: .8fr 1.2fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.about-image {
+  min-height: 370px;
+  border-radius: 18px;
+  background: linear-gradient(145deg,#132d52,#080e1b);
+  border: 1px solid #214a7c;
+  display: grid;
+  place-items: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-image::before {
+  content: "MR";
+  font-size: 130px;
+  font-weight: 800;
+  font-style: italic;
+  color: #ffffff12;
+}
+
+.about-image::after {
+  content: "MIZANUR RAHMAN";
+  position: absolute;
+  bottom: 35px;
+  font-size: 11px;
+  letter-spacing: 4px;
+  color: #75a9e8;
+}
+
+.about-text h2 { font-size: 36px; margin-bottom: 18px; }
+.about-text p { color: var(--muted); font-size: 13px; margin-bottom: 18px; }
+
+.highlights { display: grid; gap: 16px; margin: 25px 0; }
+
+.highlight {
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+}
+
+.highlight-icon { color: #529eff; font-size: 20px; }
+.highlight h4 { font-size: 13px; }
+.highlight p { margin: 3px 0 0; font-size: 12px; }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 18px;
+}
+
+.skill {
+  border: 1px solid var(--border);
+  background: #0a1424;
+  border-radius: 12px;
+  padding: 24px;
+}
+
+.skill h3 { font-size: 15px; margin-bottom: 8px; }
+.skill p { color: var(--muted); font-size: 12px; }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.contact-info h2 { font-size: 36px; margin-bottom: 15px; }
+.contact-info p { color: var(--muted); font-size: 13px; margin-bottom: 25px; }
+
+.contact-list { display: grid; gap: 16px; }
+
+.contact-item { display: flex; gap: 13px; align-items: center; }
+.contact-item span:first-child { font-size: 20px; }
+.contact-item small { color: var(--muted); display: block; font-size: 11px; }
+.contact-item strong { font-size: 13px; font-weight: 500; }
+
+form {
+  display: grid;
+  gap: 14px;
+  background: #0a1424;
+  border: 1px solid var(--border);
+  padding: 28px;
+  border-radius: 16px;
+}
+
+input, textarea, select {
+  width: 100%;
+  padding: 13px 15px;
+  border-radius: 8px;
+  background: #07101e;
+  border: 1px solid #203653;
+  color: white;
+  font: inherit;
+  font-size: 12px;
+  outline: none;
+}
+
+input:focus, textarea:focus, select:focus { border-color: var(--blue); }
+
+textarea { min-height: 130px; resize: vertical; }
+
+footer {
+  border-top: 1px solid var(--border);
+  padding: 30px 0;
+  color: #8292ad;
+  font-size: 11px;
+}
+
+.footer-content {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  .nav-links { gap: 13px; }
+  .services-grid { grid-template-columns: repeat(2,1fr); }
+  .hero-grid { gap: 25px; }
+  .hero-visual { min-height: 300px; }
+  .about-grid { gap: 30px; }
+}
+
+@media (max-width: 650px) {
+  .nav { min-height: 65px; }
+  .menu-toggle { display: block; }
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    padding: 25px;
+    background: #080f1d;
+    border-bottom: 1px solid var(--border);
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .nav-links.open { display: flex; }
+  .nav .btn { display: none; }
+  .hero { min-height: auto; padding: 70px 0; }
+  .hero-grid, .about-grid, .contact-grid { grid-template-columns: 1fr; }
+  .hero-visual { min-height: 270px; }
+  section { padding: 65px 0; }
+  .services-grid, .skills-grid, .portfolio-grid { grid-template-columns: 1fr; }
+  .project-thumb { height: 220px; }
+  .about-image { min-height: 270px; }
+  .about-text h2, .contact-info h2 { font-size: 29px; }
+  .footer-content { flex-direction: column; text-align: center; }
+}
+</style>
 </head>
+
 <body>
-<p class="p1"><br></p>
-<p class="p2">&lt;!DOCTYPE html&gt;</p>
-<p class="p2">&lt;html lang="en"&gt;</p>
-<p class="p2">&lt;head&gt;</p>
-<p class="p2">&lt;meta charset="UTF-8"&gt;</p>
-<p class="p2">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;title&gt;Mizanur Rahman — Video Editor &amp; Motion Designer&lt;/title&gt;</p>
-<p class="p2">&lt;meta name="description" content="Mizanur Rahman is a Video Editor and Motion Graphics Designer creating cinematic edits, motion graphics, and engaging visual stories."&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;style&gt;</p>
-<p class="p2">@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&amp;display=swap');</p>
-<p class="p1"><br></p>
-<p class="p2">:root {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>--bg: #05060b;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>--surface: #0d101a;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>--text: #f7f8fc;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>--muted: #9da5ba;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>--line: rgba(255,255,255,.10);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>--blue: #3998ff;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>--purple: #9b75ff;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>--radius: 20px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">* {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin: 0;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>padding: 0;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>box-sizing: border-box;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">html {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>scroll-behavior: smooth;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">body {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-family: Inter, -apple-system, BlinkMacSystemFont, "SF Pro Display",</p>
-<p class="p2"><span class="Apple-converted-space">               </span>"SF Pro Text", "Helvetica Neue", Arial, sans-serif;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: var(--bg);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: var(--text);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>line-height: 1.6;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>overflow-x: hidden;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">body::before {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>content: "";</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: fixed;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>inset: 0;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>z-index: -2;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background:</p>
-<p class="p2"><span class="Apple-converted-space">    </span>radial-gradient(circle at 10% 10%, #17427d22, transparent 35%),</p>
-<p class="p2"><span class="Apple-converted-space">    </span>radial-gradient(circle at 90% 20%, #7d35c722, transparent 35%),</p>
-<p class="p2"><span class="Apple-converted-space">    </span>radial-gradient(circle at 50% 90%, #103a6c18, transparent 40%);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>pointer-events: none;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">body::after {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>content: "";</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: fixed;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>inset: 0;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>z-index: -1;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>opacity: .18;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>pointer-events: none;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">a {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>text-decoration: none;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: inherit;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">button, input, textarea, select {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font: inherit;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.container {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>width: min(1140px, 90%);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin: auto;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">section {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>padding: 110px 0;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>scroll-margin-top: 80px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.muted {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: var(--muted);</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.gradient-text {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: linear-gradient(100deg, #3c9dff, #a679ff);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>-webkit-background-clip: text;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background-clip: text;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: transparent;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.eyebrow {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #66aeff;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 11px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>letter-spacing: 3px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-weight: 700;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>text-transform: uppercase;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-bottom: 18px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.section-heading {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>max-width: 650px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-bottom: 42px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.section-heading h2 {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: clamp(30px, 4vw, 46px);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>letter-spacing: -1.5px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>line-height: 1.15;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.section-heading p {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: var(--muted);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 14px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-top: 15px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.btn {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: inline-flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>align-items: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>justify-content: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 10px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>padding: 14px 23px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 100px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 12px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-weight: 700;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #fff;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: linear-gradient(100deg, #147df5, #855df4);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 1px solid #589cff55;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>cursor: pointer;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>transition: .3s ease;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.btn:hover {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>transform: translateY(-3px);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>box-shadow: 0 12px 35px #287dff25;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.btn-outline {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: rgba(255,255,255,.025);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-color: var(--line);</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.btn-outline:hover {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-color: #549cff88;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">header {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: sticky;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>top: 0;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>z-index: 100;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-bottom: 1px solid var(--line);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #05060bd9;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>backdrop-filter: blur(22px);</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.nav {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>min-height: 78px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>align-items: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>justify-content: space-between;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 25px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.logo {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>align-items: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 12px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 13px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-weight: 700;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>white-space: nowrap;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.logo-mark {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 27px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-weight: 800;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-style: italic;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>letter-spacing: -4px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: linear-gradient(135deg, #fff, #579cff);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>-webkit-background-clip: text;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: transparent;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.nav-links {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>align-items: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 27px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 12px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-weight: 600;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.nav-links a {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #c4cce0;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>transition: .25s;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.nav-links a:hover,</p>
-<p class="p2">.nav-links a.active {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #5ba9ff;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.menu-toggle {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: none;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: transparent;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #fff;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 1px solid var(--line);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 9px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>padding: 9px 12px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>cursor: pointer;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">/* Hero */</p>
-<p class="p2">.hero {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>min-height: 720px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>align-items: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: relative;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>overflow: hidden;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.hero::before {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>content: "";</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: absolute;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>width: 650px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>height: 650px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>right: -250px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>top: -220px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 50%;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #1266d51a;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>filter: blur(80px);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>animation: floatGlow 9s ease-in-out infinite alternate;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">@keyframes floatGlow {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>from { transform: translate(0,0) scale(1); }</p>
-<p class="p2"><span class="Apple-converted-space">  </span>to { transform: translate(-80px,80px) scale(1.2); }</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.hero-grid {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>grid-template-columns: 1fr 1fr;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 55px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>align-items: center;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.hero h1 {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: clamp(40px, 5.4vw, 68px);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>line-height: 1.08;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>letter-spacing: -3px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-bottom: 24px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.hero-description {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: var(--muted);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 14px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>max-width: 490px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-bottom: 30px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.actions {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 12px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>flex-wrap: wrap;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.socials {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 18px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-top: 30px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #a7b4cc;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 12px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.socials a:hover {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #65adff;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.hero-art {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: relative;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>min-height: 440px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 1px solid #21436e;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 25px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>overflow: hidden;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background:</p>
-<p class="p2"><span class="Apple-converted-space">    </span>radial-gradient(circle at 70% 30%, #164b82, transparent 48%),</p>
-<p class="p2"><span class="Apple-converted-space">    </span>linear-gradient(145deg, #101b2c, #060b14);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>box-shadow: 0 25px 100px #0008;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>align-items: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>justify-content: center;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.hero-art::before {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>content: "";</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: absolute;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>width: 300px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>height: 300px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 50%;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #217dff1f;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>filter: blur(50px);</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.workspace {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: relative;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>z-index: 1;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>width: 83%;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 8px solid #1b2c44;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 12px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #030811;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>padding: 10px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>box-shadow: 0 25px 70px #0009;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.screen {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>aspect-ratio: 16/10;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>flex-direction: column;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>justify-content: space-between;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>padding: 12px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 4px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #0a1220;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.screen-top {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>justify-content: space-between;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #7f9bbd;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 8px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 8px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.preview {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>height: 60%;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 5px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background:</p>
-<p class="p2"><span class="Apple-converted-space">    </span>linear-gradient(135deg, #162d4a, #2a6b9d, #0b1424);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: relative;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>overflow: hidden;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.preview::after {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>content: "CREATE";</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: absolute;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>inset: 0;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>place-items: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #ffffffb5;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 24px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>letter-spacing: 5px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-weight: 800;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.timeline {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>height: 25%;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 4px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: repeating-linear-gradient(</p>
-<p class="p2"><span class="Apple-converted-space">    </span>90deg,</p>
-<p class="p2"><span class="Apple-converted-space">    </span>#225ba8 0 40px,</p>
-<p class="p2"><span class="Apple-converted-space">    </span>#397cc2 40px 78px,</p>
-<p class="p2"><span class="Apple-converted-space">    </span>#7049a9 78px 120px</p>
-<p class="p2"><span class="Apple-converted-space">  </span>);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>opacity: .8;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.float-label {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: absolute;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>z-index: 2;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>padding: 12px 17px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 1px solid #ffffff1b;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #101d31d9;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>backdrop-filter: blur(12px);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 12px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 11px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-weight: 700;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #dceaff;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>box-shadow: 0 10px 40px #0005;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.label-one {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>left: 18px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>top: 35px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.label-two {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>right: 15px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>bottom: 35px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">/* Services */</p>
-<p class="p2">.services-grid {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>grid-template-columns: repeat(4, 1fr);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 17px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.glass-card {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: linear-gradient(145deg, #101827cc, #090f1bdd);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 1px solid var(--line);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: var(--radius);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>padding: 26px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>transition: .3s;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.glass-card:hover {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>transform: translateY(-5px);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-color: #347bc055;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: linear-gradient(145deg, #132238, #0b1422);</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.service-icon {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>width: 45px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>height: 45px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>place-items: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 1px solid #387ac044;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #16325b44;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 13px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 21px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-bottom: 20px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.glass-card h3 {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 15px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-bottom: 9px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.glass-card p {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 12px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: var(--muted);</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">/* Portfolio */</p>
-<p class="p2">.portfolio-grid {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>grid-template-columns: repeat(2, 1fr);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 25px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.project {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>overflow: hidden;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 1px solid var(--line);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 19px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #0b111e;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>transition: .3s;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.project:hover {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>transform: translateY(-5px);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-color: #3676b855;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.project-thumb {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>aspect-ratio: 16/9;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: relative;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>overflow: hidden;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>place-items: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background:</p>
-<p class="p2"><span class="Apple-converted-space">    </span>radial-gradient(circle at 60% 40%, #285b8c, transparent 55%),</p>
-<p class="p2"><span class="Apple-converted-space">    </span>linear-gradient(135deg, #1c3048, #070c17);</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.project-thumb::before {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>content: "";</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: absolute;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>inset: 0;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: linear-gradient(135deg, transparent, #0005);</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.project-thumb h3 {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>z-index: 1;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>text-align: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: clamp(25px, 4vw, 42px);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>line-height: 1.1;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>letter-spacing: 2px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-weight: 800;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.project-thumb.motion {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background:</p>
-<p class="p2"><span class="Apple-converted-space">    </span>radial-gradient(circle at 50% 50%, #8c28c855, transparent 55%),</p>
-<p class="p2"><span class="Apple-converted-space">    </span>linear-gradient(135deg, #24103d, #080b19);</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.project-thumb.motion h3 {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: linear-gradient(90deg, #c25cff, #4f9bff);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>-webkit-background-clip: text;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: transparent;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.project-thumb.social {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background:</p>
-<p class="p2"><span class="Apple-converted-space">    </span>radial-gradient(circle at 50% 40%, #1d7890, transparent 55%),</p>
-<p class="p2"><span class="Apple-converted-space">    </span>linear-gradient(135deg, #152b42, #080d18);</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.project-thumb.commercial {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background:</p>
-<p class="p2"><span class="Apple-converted-space">    </span>radial-gradient(circle at 65% 45%, #19538b, transparent 55%),</p>
-<p class="p2"><span class="Apple-converted-space">    </span>linear-gradient(135deg, #102e4a, #070d18);</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.play-button {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: absolute;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>bottom: 18px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>right: 18px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>width: 45px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>height: 45px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 1px solid #ffffff44;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #ffffff14;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>backdrop-filter: blur(10px);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 50%;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>place-items: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 16px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>z-index: 2;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.project-info {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>padding: 22px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.project-info h3 {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 16px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-bottom: 6px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.project-info p {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: var(--muted);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 12px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.tags {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 8px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>flex-wrap: wrap;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-top: 14px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.tag {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>padding: 5px 10px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 30px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 10px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #8fb9ef;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #17345a44;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 1px solid #2a548044;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">/* About */</p>
-<p class="p2">.about-grid {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>grid-template-columns: .9fr 1.1fr;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 70px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>align-items: center;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.about-image {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>min-height: 400px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: relative;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>overflow: hidden;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 22px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 1px solid #28558b;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background:</p>
-<p class="p2"><span class="Apple-converted-space">    </span>radial-gradient(circle at 60% 30%, #205a9d, transparent 55%),</p>
-<p class="p2"><span class="Apple-converted-space">    </span>linear-gradient(145deg, #152d4c, #080e1a);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>place-items: center;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.about-image::before {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>content: "MR";</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 145px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-weight: 800;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-style: italic;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #ffffff0e;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.about-image::after {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>content: "MIZANUR RAHMAN";</p>
-<p class="p2"><span class="Apple-converted-space">  </span>position: absolute;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>bottom: 35px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #82b7f7;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 11px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>letter-spacing: 4px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.about-text h2 {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: clamp(30px, 4vw, 43px);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>letter-spacing: -1.5px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>line-height: 1.2;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-bottom: 20px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.about-text &gt; p {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: var(--muted);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 13px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-bottom: 15px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.highlights {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 18px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin: 28px 0;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.highlight {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>align-items: flex-start;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 14px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.highlight-icon {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #4b9cff;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 20px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.highlight h4 {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 13px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.highlight p {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: var(--muted);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 12px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-top: 3px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">/* Skills */</p>
-<p class="p2">.skills-grid {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>grid-template-columns: repeat(3, 1fr);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 18px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.skill-card {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 1px solid var(--line);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 15px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>padding: 25px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #0b1220;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.skill-card h3 {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 15px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-bottom: 8px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.skill-card p {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: var(--muted);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 12px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">/* Contact */</p>
-<p class="p2">.contact-grid {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>grid-template-columns: 1fr 1fr;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 65px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>align-items: start;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.contact-info h2 {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: clamp(30px, 4vw, 44px);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>line-height: 1.15;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>letter-spacing: -1.5px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-bottom: 20px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.contact-info &gt; p {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: var(--muted);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 13px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>margin-bottom: 30px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.contact-list {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 20px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.contact-item {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>align-items: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 15px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.contact-icon {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>width: 42px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>height: 42px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 12px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>place-items: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #12315a55;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 1px solid #2c588655;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.contact-item small {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: block;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #8291aa;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 11px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.contact-item strong {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: block;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 13px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-weight: 500;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">form {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 14px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>padding: 30px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 20px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #0b1220;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 1px solid var(--line);</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.form-row {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: grid;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>grid-template-columns: 1fr 1fr;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 12px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">input, textarea, select {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>width: 100%;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>padding: 14px 15px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #fff;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #070d18;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border: 1px solid #203553;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-radius: 9px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>outline: none;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 12px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">input:focus, textarea:focus, select:focus {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-color: #3d8fff;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>box-shadow: 0 0 0 3px #3d8fff12;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">textarea {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>min-height: 130px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>resize: vertical;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">select option {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>background: #0b1220;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.form-message {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #83a9d6;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 12px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">/* Footer */</p>
-<p class="p2">footer {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>border-top: 1px solid var(--line);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>padding: 32px 0;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>color: #8291aa;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>font-size: 11px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">.footer-content {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>display: flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>align-items: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>justify-content: space-between;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>gap: 20px;</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">/* Responsive */</p>
-<p class="p2">@media (max-width: 950px) {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>.services-grid {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>grid-template-columns: repeat(2, 1fr);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.hero-grid {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>gap: 30px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.nav-links {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>gap: 15px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">@media (max-width: 680px) {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>section {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>padding: 75px 0;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.nav {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>min-height: 68px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.menu-toggle {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>display: block;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.nav &gt; .btn {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>display: none;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.nav-links {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>display: none;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>position: absolute;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>left: 0;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>top: 68px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>width: 100%;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>padding: 25px 5%;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>flex-direction: column;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>align-items: flex-start;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>background: #080d18f5;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>backdrop-filter: blur(20px);</p>
-<p class="p2"><span class="Apple-converted-space">    </span>border-bottom: 1px solid var(--line);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.nav-links.open {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>display: flex;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.hero {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>min-height: auto;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>padding: 80px 0;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.hero-grid,</p>
-<p class="p2"><span class="Apple-converted-space">  </span>.about-grid,</p>
-<p class="p2"><span class="Apple-converted-space">  </span>.contact-grid {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>grid-template-columns: 1fr;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.hero h1 {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>letter-spacing: -2px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.hero-art {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>min-height: 300px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.workspace {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>width: 80%;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.float-label {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>font-size: 9px;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>padding: 9px 11px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.services-grid,</p>
-<p class="p2"><span class="Apple-converted-space">  </span>.skills-grid,</p>
-<p class="p2"><span class="Apple-converted-space">  </span>.portfolio-grid {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>grid-template-columns: 1fr;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.about-image {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>min-height: 280px;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.form-row {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>grid-template-columns: 1fr;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>.footer-content {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>flex-direction: column;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>text-align: center;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2">}</p>
-<p class="p1"><br></p>
-<p class="p2">@media (prefers-reduced-motion: reduce) {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>html { scroll-behavior: auto; }</p>
-<p class="p2"><span class="Apple-converted-space">  </span>*, *::before, *::after {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>animation-duration: .01ms !important;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>transition-duration: .01ms !important;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>}</p>
-<p class="p2">}</p>
-<p class="p2">&lt;/style&gt;</p>
-<p class="p2">&lt;/head&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;body&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;header&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;div class="container nav"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;a href="#home" class="logo"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;span class="logo-mark"&gt;MR&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;span&gt;Mizanur Rahman&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/a&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;button class="menu-toggle" id="menuToggle" aria-label="Toggle menu"&gt;☰&lt;/button&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;nav class="nav-links" id="navLinks"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;a href="#home"&gt;Home&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;a href="#about"&gt;About&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;a href="#services"&gt;Services&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;a href="#portfolio"&gt;Portfolio&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;a href="#skills"&gt;Skills&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;a href="#contact"&gt;Contact&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/nav&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;a href="#contact" class="btn"&gt;Hire Me ↗&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2">&lt;/header&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;main&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;section class="hero" id="home"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;div class="container hero-grid"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="eyebrow"&gt;Video Editor &amp; Motion Graphics Designer&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;h1&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>Turning Ideas Into</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;span class="gradient-text"&gt;Visual Stories.&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/h1&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;p class="hero-description"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>I'm Mizanur Rahman, a Video Editor and Motion Graphics Designer.</p>
-<p class="p2"><span class="Apple-converted-space">        </span>I create engaging, high-quality videos and motion graphics for</p>
-<p class="p2"><span class="Apple-converted-space">        </span>brands, businesses, and content creators.</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="actions"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;a href="#portfolio" class="btn"&gt;View My Work ▶&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;a href="#contact" class="btn btn-outline"&gt;Let's Talk ↗&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="socials"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;a href="#" aria-label="YouTube"&gt;YouTube&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;a href="#" aria-label="Instagram"&gt;Instagram&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;a href="#" aria-label="TikTok"&gt;TikTok&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;a href="#" aria-label="LinkedIn"&gt;LinkedIn&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;a href="#" aria-label="Behance"&gt;Behance&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div class="hero-art"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="float-label label-one"&gt;✦ Creative Workflow&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="workspace"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="screen"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div class="screen-top"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;span&gt;VIDEO EDITING WORKSPACE&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;span&gt;4K • 24 FPS&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div class="preview"&gt;&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div class="timeline"&gt;&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="float-label label-two"&gt;✦ Edit • Animate • Create&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2">&lt;/section&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;section id="services"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div class="section-heading"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="eyebrow"&gt;What I Do&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;h2&gt;Creative Services&lt;/h2&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>From raw footage to polished visuals, I help turn your ideas</p>
-<p class="p2"><span class="Apple-converted-space">        </span>into engaging and professional content.</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div class="services-grid"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="glass-card"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="service-icon"&gt;🎬&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;h3&gt;Video Editing&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;p&gt;YouTube videos, promotional content, ads, and storytelling edits.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="glass-card"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="service-icon"&gt;✨&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;h3&gt;Motion Graphics&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;p&gt;Motion titles, kinetic typography, logo animations, and lower thirds.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="glass-card"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="service-icon"&gt;🎨&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;h3&gt;2D Animation&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;p&gt;Explainer videos, animated graphics, and creative visual stories.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="glass-card"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="service-icon"&gt;🎞️&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;h3&gt;Color Grading&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;p&gt;Cinematic color correction and professional visual finishing.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="glass-card"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="service-icon"&gt;🎧&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;h3&gt;Sound Design&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;p&gt;Audio enhancement, sound effects, and clean audio mixing.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="glass-card"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="service-icon"&gt;⚡&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;h3&gt;Visual Effects&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;p&gt;VFX, compositing, cleanup, and creative visual effects.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="glass-card"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="service-icon"&gt;📱&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;h3&gt;Social Media Edits&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;p&gt;Reels, Shorts, TikTok, and engaging vertical content.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="glass-card"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="service-icon"&gt;🎙️&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;h3&gt;Podcast Editing&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;p&gt;Multi-camera edits, audio sync, highlights, and short clips.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2">&lt;/section&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;section id="portfolio"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div class="section-heading"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="eyebrow"&gt;Selected Work&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;h2&gt;Featured Projects&lt;/h2&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>A showcase of creative editing, motion design, and visual storytelling.</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div class="portfolio-grid"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;article class="project"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="project-thumb"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;h3&gt;CINEMATIC&lt;br&gt;VIDEO EDIT&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;span class="play-button"&gt;▶&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="project-info"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;h3&gt;Cinematic Video Edit&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;p&gt;Storytelling, editing, and color grading.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div class="tags"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;Video Editing&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;Color Grading&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/article&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;article class="project"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="project-thumb motion"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;h3&gt;MOTION&lt;br&gt;GRAPHICS&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;span class="play-button"&gt;▶&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="project-info"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;h3&gt;Motion Graphics Intro&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;p&gt;2D animation and creative motion design.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div class="tags"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;After Effects&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;Animation&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/article&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;article class="project"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="project-thumb social"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;h3&gt;SOCIAL&lt;br&gt;MEDIA REEL&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;span class="play-button"&gt;▶&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="project-info"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;h3&gt;Social Media Reel&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;p&gt;Short-form content for modern social platforms.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div class="tags"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;Reels&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;Shorts&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/article&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;article class="project"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="project-thumb commercial"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;h3&gt;PRODUCT&lt;br&gt;PROMO&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;span class="play-button"&gt;▶&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="project-info"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;h3&gt;Commercial Ad&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;p&gt;Product promotion and branded video editing.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div class="tags"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;Commercial&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;span class="tag"&gt;Motion Design&lt;/span&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/article&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div style="text-align:center;margin-top:40px"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;a href="#contact" class="btn btn-outline"&gt;Discuss Your Project ↗&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2">&lt;/section&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;section id="about"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;div class="container about-grid"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div class="about-image"&gt;&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div class="about-text"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="eyebrow"&gt;About Me&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;h2&gt;Hi, I'm Mizanur Rahman.&lt;/h2&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>I'm a passionate Video Editor and Motion Graphics Designer</p>
-<p class="p2"><span class="Apple-converted-space">        </span>with a strong focus on creating engaging, high-quality content.</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>I turn raw footage into polished, professional videos that</p>
-<p class="p2"><span class="Apple-converted-space">        </span>help brands and creators tell their stories in the most</p>
-<p class="p2"><span class="Apple-converted-space">        </span>impactful way.</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="highlights"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="highlight"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div class="highlight-icon"&gt;✦&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;h4&gt;Creative &amp; Detail Oriented&lt;/h4&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;p&gt;I focus on visual quality, pacing, and storytelling.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="highlight"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div class="highlight-icon"&gt;✓&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;h4&gt;Reliable &amp; Fast&lt;/h4&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;p&gt;Committed to clear communication and dependable delivery.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="highlight"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div class="highlight-icon"&gt;↗&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;h4&gt;Trend Aware&lt;/h4&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;p&gt;Keeping up with modern editing and motion design trends.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;a href="#contact" class="btn"&gt;Let's Work Together ↗&lt;/a&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2">&lt;/section&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;section id="skills"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;div class="container"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div class="section-heading"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="eyebrow"&gt;My Expertise&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;h2&gt;Tools &amp; Skills&lt;/h2&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>Creative techniques and professional tools for high-quality results.</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div class="skills-grid"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="skill-card"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;h3&gt;Adobe Premiere Pro&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;p&gt;Professional video editing, pacing, storytelling, and workflow.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="skill-card"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;h3&gt;Adobe After Effects&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;p&gt;Motion graphics, animation, compositing, and visual effects.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="skill-card"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;h3&gt;DaVinci Resolve&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;p&gt;Color correction, color grading, and professional finishing.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="skill-card"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;h3&gt;Motion Design&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;p&gt;Kinetic typography, titles, transitions, and logo animation.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="skill-card"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;h3&gt;Sound Design&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;p&gt;Audio enhancement, mixing, and sound effects.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="skill-card"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;h3&gt;Visual Storytelling&lt;/h3&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;p&gt;Creative editing decisions that support your message.&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2">&lt;/section&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;section id="contact"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;div class="container contact-grid"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div class="contact-info"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="eyebrow"&gt;Let's Work Together&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;h2&gt;Have a project in mind?&lt;/h2&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>I'd love to hear about your project and help bring your</p>
-<p class="p2"><span class="Apple-converted-space">        </span>vision to life.</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/p&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="contact-list"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="contact-item"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div class="contact-icon"&gt;✉️&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;small&gt;Email&lt;/small&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;strong&gt;mizan203869@com&lt;/strong&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="contact-item"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div class="contact-icon"&gt;📱&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;small&gt;WhatsApp&lt;/small&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;strong&gt;+880 1764668087&lt;/strong&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;div class="contact-item"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div class="contact-icon"&gt;📍&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;small&gt;Location&lt;/small&gt;</p>
-<p class="p2"><span class="Apple-converted-space">            </span>&lt;strong&gt;Rajshahi, Bangladesh&lt;/strong&gt;</p>
-<p class="p2"><span class="Apple-converted-space">          </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;form id="contactForm"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;div class="form-row"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;input type="text" name="name" placeholder="Your Name *" required&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;input type="email" name="email" placeholder="Your Email *" required&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/div&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;select name="service" required&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;option value=""&gt;Select a service&lt;/option&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;option&gt;Video Editing&lt;/option&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;option&gt;Motion Graphics&lt;/option&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;option&gt;Social Media Editing&lt;/option&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;option&gt;Commercial Video&lt;/option&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;option&gt;Podcast Editing&lt;/option&gt;</p>
-<p class="p2"><span class="Apple-converted-space">        </span>&lt;option&gt;Other&lt;/option&gt;</p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;/select&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;textarea name="message" placeholder="Tell me about your project..." required&gt;&lt;/textarea&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;button class="btn" type="submit"&gt;Send Message ↗&lt;/button&gt;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">      </span>&lt;p id="formMessage" class="form-message"&gt;&lt;/p&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;/form&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2">&lt;/section&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;/main&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;footer&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;div class="container footer-content"&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div&gt;MR — Mizanur Rahman | Video Editor &amp; Motion Graphics Designer&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">    </span>&lt;div&gt;© 2026 Mizanur Rahman. All rights reserved.&lt;/div&gt;</p>
-<p class="p2"><span class="Apple-converted-space">  </span>&lt;/div&gt;</p>
-<p class="p2">&lt;/footer&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;script&gt;</p>
-<p class="p2">const menuToggle = document.getElementById("menuToggle");</p>
-<p class="p2">const navLinks = document.getElementById("navLinks");</p>
-<p class="p1"><br></p>
-<p class="p2">menuToggle.addEventListener("click", () =&gt; {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>navLinks.classList.toggle("open");</p>
-<p class="p2">});</p>
-<p class="p1"><br></p>
-<p class="p2">document.querySelectorAll(".nav-links a").forEach(link =&gt; {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>link.addEventListener("click", () =&gt; {</p>
-<p class="p2"><span class="Apple-converted-space">    </span>navLinks.classList.remove("open");</p>
-<p class="p2"><span class="Apple-converted-space">  </span>});</p>
-<p class="p2">});</p>
-<p class="p1"><br></p>
-<p class="p2">const form = document.getElementById("contactForm");</p>
-<p class="p2">const formMessage = document.getElementById("formMessage");</p>
-<p class="p1"><br></p>
-<p class="p2">form.addEventListener("submit", (event) =&gt; {</p>
-<p class="p2"><span class="Apple-converted-space">  </span>event.preventDefault();</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>const data = new FormData(form);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>const name = data.get("name");</p>
-<p class="p2"><span class="Apple-converted-space">  </span>const email = data.get("email");</p>
-<p class="p2"><span class="Apple-converted-space">  </span>const service = data.get("service");</p>
-<p class="p2"><span class="Apple-converted-space">  </span>const message = data.get("message");</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>const subject = encodeURIComponent("New Portfolio Inquiry — " + service);</p>
-<p class="p2"><span class="Apple-converted-space">  </span>const body = encodeURIComponent(</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Name: " + name + "\n" +</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Email: " + email + "\n" +</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Service: " + service + "\n\n" +</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Project Details:\n" + message</p>
-<p class="p2"><span class="Apple-converted-space">  </span>);</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>window.location.href =</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"mailto:your-email@example.com?subject=" + subject + "&amp;body=" + body;</p>
-<p class="p1"><br></p>
-<p class="p2"><span class="Apple-converted-space">  </span>formMessage.textContent =</p>
-<p class="p2"><span class="Apple-converted-space">    </span>"Your email app will open with the project details.";</p>
-<p class="p2">});</p>
-<p class="p2">&lt;/script&gt;</p>
-<p class="p1"><br></p>
-<p class="p2">&lt;/body&gt;</p>
-<p class="p2">&lt;/html&gt;</p>
+
+<header>
+  <div class="container nav">
+    <a href="#home" class="logo">
+      <span class="logo-mark">MR</span>
+      <span>Mizanur Rahman</span>
+    </a>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#contact" class="btn">Hire Me ↗</a>
+  </div>
+</header>
+
+<main>
+
+<section class="hero" id="home">
+  <div class="container hero-grid">
+    <div>
+      <div class="eyebrow">Video Editor & Motion Graphics Designer</div>
+      <h1>Turning Ideas Into <span class="gradient">Visual Stories</span></h1>
+      <p>I'm Mizanur Rahman, a Video Editor and Motion Graphics Designer. I create engaging, high-quality videos and motion graphics for brands, businesses, and content creators.</p>
+      <div class="actions">
+        <a href="#portfolio" class="btn">View My Work ▶</a>
+        <a href="#contact" class="btn btn-outline">Get In Touch ↗</a>
+      </div>
+      <div class="socials">
+        <a href="#" aria-label="YouTube">YouTube</a>
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Facebook">Facebook</a>
+        <a href="#" aria-label="LinkedIn">LinkedIn</a>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="monitor">
+        <div class="screen">
+          <div class="screen-top"><span>VIDEO EDITING WORKSPACE</span><span>4K • 24 FPS</span></div>
+          <div class="preview"></div>
+          <div class="timeline"></div>
+        </div>
+      </div>
+      <div class="monitor-stand"></div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">What I Do</div>
+      <h2>Creative Services</h2>
+      <p>Professional video editing and motion graphics services to help your vision come to life.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="card"><div class="card-icon">🎬</div><h3>Video Editing</h3><p>YouTube videos, social media content, promotional videos, and ads.</p></div>
+      <div class="card"><div class="card-icon">✨</div><h3>Motion Graphics</h3><p>Motion titles, kinetic typography, logo animations, and lower thirds.</p></div>
+      <div class="card"><div class="card-icon">🎨</div><h3>2D Animation</h3><p>Explainer videos, animated graphics, and creative visual storytelling.</p></div>
+      <div class="card"><div class="card-icon">🎞️</div><h3>Color Grading</h3><p>Cinematic color correction and professional visual finishing.</p></div>
+      <div class="card"><div class="card-icon">🎧</div><h3>Sound Design</h3><p>Audio enhancement, sound effects, and clean audio mixing.</p></div>
+      <div class="card"><div class="card-icon">⚡</div><h3>Visual Effects</h3><p>VFX, compositing, cleanup, and creative effects.</p></div>
+      <div class="card"><div class="card-icon">📱</div><h3>Social Media Edits</h3><p>Reels, Shorts, TikTok, and engaging vertical content.</p></div>
+      <div class="card"><div class="card-icon">🎙️</div><h3>Podcast Editing</h3><p>Multi-camera editing, audio sync, highlights, and short clips.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="portfolio">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">My Work</div>
+      <h2>Featured Projects</h2>
+      <p>A selection of creative projects showcasing my editing and motion graphics skills.</p>
+    </div>
+
+    <div class="portfolio-grid">
+      <article class="project">
+        <div class="project-thumb"><h3>CINEMATIC<br>VIDEO EDIT</h3><span class="play">▶</span></div>
+        <div class="project-info"><h3>Cinematic Video Edit</h3><p>Storytelling, editing, and color grading.</p><div class="tags"><span class="tag">Video Editing</span><span class="tag">Color Grading</span></div></div>
+      </article>
+
+      <article class="project">
+        <div class="project-thumb motion"><h3>MOTION<br>GRAPHICS</h3><span class="play">▶</span></div>
+        <div class="project-info"><h3>Motion Graphics Intro</h3><p>2D animation and creative motion design.</p><div class="tags"><span class="tag">After Effects</span><span class="tag">Animation</span></div></div>
+      </article>
+
+      <article class="project">
+        <div class="project-thumb social"><h3>SOCIAL<br>MEDIA</h3><span class="play">▶</span></div>
+        <div class="project-info"><h3>Social Media Reel</h3><p>Short-form content for social platforms.</p><div class="tags"><span class="tag">Reels</span><span class="tag">Shorts</span></div></div>
+      </article>
+
+      <article class="project">
+        <div class="project-thumb commercial"><h3>PRODUCT<br>PROMO</h3><span class="play">▶</span></div>
+        <div class="project-info"><h3>Commercial Ad</h3><p>Product promotion and branded video editing.</p><div class="tags"><span class="tag">Commercial</span><span class="tag">Motion Design</span></div></div>
+      </article>
+    </div>
+
+    <div style="text-align:center;margin-top:35px">
+      <a href="#contact" class="btn btn-outline">Discuss Your Project ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="container about-grid">
+    <div class="about-image"></div>
+
+    <div class="about-text">
+      <div class="eyebrow">About Me</div>
+      <h2>Hi, I'm Mizanur Rahman</h2>
+      <p>I'm a passionate Video Editor and Motion Graphics Designer with a strong focus on creating engaging, high-quality content.</p>
+      <p>I turn raw footage into polished, professional videos that help brands and creators tell their stories in the most impactful way.</p>
+
+      <div class="highlights">
+        <div class="highlight"><div class="highlight-icon">✦</div><div><h4>Creative & Detail Oriented</h4><p>I focus on visual quality, pacing, and storytelling.</p></div></div>
+        <div class="highlight"><div class="highlight-icon">✓</div><div><h4>Reliable & Fast</h4><p>Committed to clear communication and dependable delivery.</p></div></div>
+        <div class="highlight"><div class="highlight-icon">↗</div><div><h4>Trend Aware</h4><p>Keeping up with modern editing and motion design trends.</p></div></div>
+      </div>
+
+      <a href="#contact" class="btn">Let's Work Together ↗</a>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="container">
+    <div class="section-heading">
+      <div class="eyebrow">My Skills</div>
+      <h2>Tools & Expertise</h2>
+      <p>Industry-standard tools and creative techniques to deliver the best results.</p>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill"><h3>Adobe Premiere Pro</h3><p>Professional video editing, storytelling, pacing, and workflow.</p></div>
+      <div class="skill"><h3>Adobe After Effects</h3><p>Motion graphics, animation, compositing, and visual effects.</p></div>
+      <div class="skill"><h3>DaVinci Resolve</h3><p>Color correction, color grading, and professional finishing.</p></div>
+      <div class="skill"><h3>Motion Design</h3><p>Kinetic typography, titles, transitions, and logo animation.</p></div>
+      <div class="skill"><h3>Sound Design</h3><p>Audio enhancement, mixing, and sound effects.</p></div>
+      <div class="skill"><h3>Visual Storytelling</h3><p>Creative editing decisions that support your message.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="container contact-grid">
+    <div class="contact-info">
+      <div class="eyebrow">Let's Work Together</div>
+      <h2>Have a project in mind?</h2>
+      <p>I'd love to hear about your project and help bring your vision to life.</p>
+
+      <div class="contact-list">
+        <div class="contact-item"><span>✉️</span><div><small>Email</small><strong>your-email@example.com</strong></div></div>
+        <div class="contact-item"><span>📱</span><div><small>WhatsApp</small><strong>+880 1XXXXXXXXX</strong></div></div>
+        <div class="contact-item"><span>📍</span><div><small>Location</small><strong>Rajshahi, Bangladesh</strong></div></div>
+      </div>
+    </div>
+
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name *" required>
+      <input type="email" name="email" placeholder="Your Email *" required>
+      <select name="service" required>
+        <option value="">Select a service</option>
+        <option>Video Editing</option>
+        <option>Motion Graphics</option>
+        <option>Social Media Editing</option>
+        <option>Commercial Video</option>
+        <option>Podcast Editing</option>
+        <option>Other</option>
+      </select>
+      <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+      <button class="btn" type="submit">Send Message ↗</button>
+      <p id="formMessage" style="font-size:12px;color:#8fa4c2"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container footer-content">
+    <div>MR &nbsp; Mizanur Rahman | Video Editor & Motion Graphics Designer</div>
+    <div>© 2026 Mizanur Rahman. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+const menuToggle = document.getElementById("menuToggle");
+const navLinks = document.getElementById("navLinks");
+
+menuToggle.addEventListener("click", () => {
+  navLinks.classList.toggle("open");
+});
+
+document.querySelectorAll(".nav-links a").forEach(link => {
+  link.addEventListener("click", () => navLinks.classList.remove("open"));
+});
+
+document.getElementById("contactForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+  document.getElementById("formMessage").textContent =
+    "Thanks! Please connect your email service to receive messages from this form.";
+});
+</script>
+
 </body>
 </html>
