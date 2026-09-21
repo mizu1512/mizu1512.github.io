@@ -414,21 +414,17 @@ section { padding: 100px 0; }
   overflow: hidden;
 }
 
-.about-image::before {
-  content: "MR";
-  font-size: 130px;
-  font-weight: 800;
-  font-style: italic;
-  color: #ffffff12;
+.about-image::before,
+.about-image::after {
+    display: none;
 }
 
-.about-image::after {
-  content: "MIZANUR RAHMAN";
-  position: absolute;
-  bottom: 35px;
-  font-size: 11px;
-  letter-spacing: 4px;
-  color: #75a9e8;
+.about-image {
+    background-image: url("profile.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    overflow: hidden;
 }
 
 .about-text h2 { font-size: 36px; margin-bottom: 18px; }
