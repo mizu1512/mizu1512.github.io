@@ -53,18 +53,14 @@ header {
   justify-content: space-between;
   gap: 20px;
 }
-  
-<a href="#" class="logo">
-    <img src="logo.png" alt="Mizanur Rahman">
-</a>
-  
-.logo img {
+
+  .logo img {
     width: 150px;
     height: auto;
     display: block;
     object-fit: contain;
-}
-
+  }
+  
 .nav-links {
   display: flex;
   gap: 24px;
@@ -414,8 +410,8 @@ section { padding: 100px 0; }
 
 .about-image {
     background-image: url("profile.png");
-    background-size: cover;
-    background-position: center top;
+    background-size: fit;
+    background-position: center;
     background-repeat: no-repeat;
     overflow: hidden;
 }
@@ -547,12 +543,12 @@ footer {
 <body>
 
 <header>
+  
   <div class="container nav">
-    <a href="#home" class="logo">
-      <span class="logo-mark">MR</span>
-      <span>Mizanur Rahman</span>
-    </a>
-
+   <a href="#" class="logo">
+    <img src="logo.png" alt="Mizanur Rahman">
+</a>
+  
     <button class="menu-toggle" id="menuToggle" aria-label="Open navigation">☰</button>
 
     <nav class="nav-links" id="navLinks">
