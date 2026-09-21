@@ -53,25 +53,17 @@ header {
   justify-content: space-between;
   gap: 20px;
 }
-  
-.logo {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-weight: 800;
-  white-space: nowrap;
-}
+<a href="#" class="logo">
+    <img src="logo.png" alt="Mizanur Rahman">
+</a>
   
 .logo img {
     width: 150px;
     height: auto;
     display: block;
+    object-fit: contain;
 }
-  
-<a href="#" class="logo">
-    <img src="logo.png" alt="Mizanur Rahman">
-  
-</a>
+
 .nav-links {
   display: flex;
   gap: 24px;
@@ -79,7 +71,7 @@ header {
   font-size: 12px;
   font-weight: 600;
 }
-  
+
 .nav-links a { color: #dce5f7; transition: .3s; }
 .nav-links a:hover { color: var(--blue); }
 
@@ -421,8 +413,8 @@ section { padding: 100px 0; }
 
 .about-image {
     background-image: url("profile.png");
-    background-size: 115%;
-    background-position: center 15%;
+    background-size: cover;
+    background-position: center top;
     background-repeat: no-repeat;
     overflow: hidden;
 }
@@ -717,30 +709,26 @@ footer {
         <div class="contact-item"><span>📍</span><div><small>Location</small><strong>Rajshahi, Bangladesh</strong></div></div>
       </div>
     </div>
-    
-<form action="https://formspree.io"method="POST" style="display: flex; flex-direction: column; gap: 16px;">
-  <input type="text" name="name" placeholder="Your Name *" required style="width: 100%; padding: 16px; background: #0b1425; border: 1px solid rgba(130,160,210,.16); border-radius: 8px; color: #f4f7ff; font-size: 14px;">
-  
-  <input type="email" name="email" placeholder="Your Email *" required style="width: 100%; padding: 16px; background: #0b1425; border: 1px solid rgba(130,160,210,.16); border-radius: 8px; color: #f4f7ff; font-size: 14px;">
-  
-  <select name="service" required style="width: 100%; padding: 16px; background: #0b1425; border: 1px solid rgba(130,160,210,.16); border-radius: 8px; color: #f4f7ff; font-size: 14px; appearance: none; -webkit-appearance: none;">
-    <option value="">Select a service</option>
-    <option>Video Editing</option>
-    <option>Motion Graphics</option>
-    <option>Social Media Editing</option>
-    <option>Commercial Video</option>
-    <option>Podcast Editing</option>
-    <option>Other</option>
-  </select>
-  
-  <textarea name="message" placeholder="Tell me about your project..." required style="width: 100%; padding: 16px; background: #0b1425; border: 1px solid rgba(130,160,210,.16); border-radius: 8px; color: #f4f7ff; font-size: 14px; min-height: 120px; resize: vertical;"></textarea>
-  
-  <button type="submit" style="width: 100%; padding: 16px; border: none; border-radius: 30px; font-size: 14px; font-weight: 700; color: white; background: linear-gradient(100deg,#1678ff,#8264f5); cursor: pointer; display: inline-flex; align-items: center; justify-content: center; gap: 8px; transition: .3s;">Send Message ↗</button>
-</form>
 
-
+    <form id="contactForm">
+      <input type="text" name="name" placeholder="Your Name *" required>
+      <input type="email" name="email" placeholder="Your Email *" required>
+      <select name="service" required>
+        <option value="">Select a service</option>
+        <option>Video Editing</option>
+        <option>Motion Graphics</option>
+        <option>Social Media Editing</option>
+        <option>Commercial Video</option>
+        <option>Podcast Editing</option>
+        <option>Other</option>
+      </select>
+      <textarea name="message" placeholder="Tell me about your project..." required></textarea>
+      <button class="btn" type="submit">Send Message ↗</button>
+      <p id="formMessage" style="font-size:12px;color:#8fa4c2"></p>
+    </form>
   </div>
 </section>
+
 </main>
 
 <footer>
