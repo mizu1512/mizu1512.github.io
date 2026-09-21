@@ -53,7 +53,7 @@ header {
   justify-content: space-between;
   gap: 20px;
 }
-
+  
 .logo {
   display: flex;
   align-items: center;
@@ -61,17 +61,17 @@ header {
   font-weight: 800;
   white-space: nowrap;
 }
-
-.logo-mark {
-  font-size: 24px;
-  font-style: italic;
-  background: linear-gradient(135deg,#fff,#699dff);
-  -webkit-background-clip: text;
-  color: transparent;
+  
+.logo img {
+    width: 150px;
+    height: auto;
+    display: block;
 }
-
-.logo span:last-child { font-size: 14px; }
-
+  
+<a href="#" class="logo">
+    <img src="logo.png" alt="Mizanur Rahman">
+  
+</a>
 .nav-links {
   display: flex;
   gap: 24px;
@@ -79,7 +79,7 @@ header {
   font-size: 12px;
   font-weight: 600;
 }
-
+  
 .nav-links a { color: #dce5f7; transition: .3s; }
 .nav-links a:hover { color: var(--blue); }
 
@@ -421,8 +421,8 @@ section { padding: 100px 0; }
 
 .about-image {
     background-image: url("profile.png");
-    background-size: contain;
-    background-position: center top;
+    background-size: 115%;
+    background-position: center 15%;
     background-repeat: no-repeat;
     overflow: hidden;
 }
